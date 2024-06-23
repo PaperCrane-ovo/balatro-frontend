@@ -1,0 +1,329 @@
+[gd_scene load_steps=11 format=3 uid="uid://bxb3ins5smp88"]
+
+[ext_resource type="Script" path="res://scenes/message.gd" id="1_7f4ei"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_y6swf"]
+font_size = 26
+shadow_size = 3
+shadow_color = Color(0.105882, 0.105882, 0.105882, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ab228"]
+font_size = 26
+
+[sub_resource type="LabelSettings" id="LabelSettings_1trnx"]
+font_size = 26
+
+[sub_resource type="ImageTexture" id="ImageTexture_f2e5d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_db6t2"]
+font_size = 25
+font_color = Color(0.227451, 0.45098, 1, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2707u"]
+font_size = 25
+font_color = Color(1, 0.258824, 0.2, 1)
+shadow_size = 4
+shadow_color = Color(0, 0, 0, 1)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6njl"]
+font_size = 30
+font_color = Color(0.721569, 0.698039, 0.290196, 1)
+outline_color = Color(0.447059, 0.447059, 0.447059, 1)
+shadow_size = 6
+shadow_color = Color(0.156863, 0.156863, 0.156863, 0.921569)
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ttytv"]
+font_size = 25
+font_color = Color(0.721569, 0.698039, 0.290196, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_p0ie2"]
+font_size = 25
+font_color = Color(0.721569, 0.698039, 0.290196, 1)
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Message" type="Node2D"]
+position = Vector2(-11, 41)
+scale = Vector2(1.545, 1.545)
+script = ExtResource("1_7f4ei")
+
+[node name="BG" type="ColorRect" parent="."]
+offset_left = 36.0
+offset_top = -0.999998
+offset_right = 365.0
+offset_bottom = 647.0
+color = Color(0.337255, 0.337255, 0.337255, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 1010.65
+offset_top = 31.7152
+offset_right = 1217.65
+offset_bottom = 151.715
+color = Color(0.396078, 0.396078, 0.396078, 1)
+
+[node name="房间" type="RichTextLabel" parent="."]
+offset_left = 47.0
+offset_top = 12.0
+offset_right = 354.0
+offset_bottom = 126.0
+
+[node name="小丑" type="RichTextLabel" parent="."]
+offset_left = 1011.65
+offset_top = 31.7152
+offset_right = 1217.65
+offset_bottom = 149.715
+bbcode_enabled = true
+metadata/_edit_group_ = true
+
+[node name="回合分数" type="ColorRect" parent="."]
+offset_left = 45.0
+offset_top = 138.0
+offset_right = 357.0
+offset_bottom = 223.0
+color = Color(0.207843, 0.207843, 0.207843, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="计数" type="Label" parent="回合分数"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.355349
+anchor_top = 0.406916
+anchor_right = 0.355349
+anchor_bottom = 0.406916
+offset_left = -73.8687
+offset_top = -16.5879
+offset_right = 173.131
+offset_bottom = 35.4121
+text = "0"
+label_settings = SubResource("LabelSettings_y6swf")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="筹码*倍率" type="ColorRect" parent="."]
+offset_left = 46.0
+offset_top = 234.0
+offset_right = 357.0
+offset_bottom = 374.0
+color = Color(0.215686, 0.215686, 0.215686, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="牌型" type="Label" parent="筹码*倍率"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 4.0
+offset_right = 144.0
+offset_bottom = 60.0
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="等级" type="Label" parent="筹码*倍率"]
+layout_mode = 0
+offset_left = 157.0
+offset_top = 6.0
+offset_right = 306.0
+offset_bottom = 58.0
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="倍率" type="ColorRect" parent="筹码*倍率"]
+layout_mode = 0
+offset_left = 177.0
+offset_top = 61.0
+offset_right = 302.0
+offset_bottom = 131.0
+color = Color(1, 0.313726, 0.247059, 1)
+metadata/_edit_group_ = true
+
+[node name="计数" type="Label" parent="筹码*倍率/倍率"]
+layout_mode = 0
+offset_left = 1.00002
+offset_top = 1.0
+offset_right = 125.0
+offset_bottom = 70.0
+text = "0"
+label_settings = SubResource("LabelSettings_ab228")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="筹码" type="ColorRect" parent="筹码*倍率"]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 63.0
+offset_right = 121.0
+offset_bottom = 130.0
+color = Color(0.286275, 0.501961, 1, 1)
+
+[node name="计数" type="Label" parent="筹码*倍率/筹码"]
+layout_mode = 0
+offset_left = -3.0
+offset_right = 108.0
+offset_bottom = 67.0
+text = "0"
+label_settings = SubResource("LabelSettings_1trnx")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="比赛信息" type="Button" parent="." groups=["scene_manager_entity_nodes"]]
+offset_left = 53.0
+offset_top = 406.0
+offset_right = 136.0
+offset_bottom = 496.0
+text = "比赛信息"
+icon = SubResource("ImageTexture_f2e5d")
+metadata/_edit_use_anchors_ = true
+metadata/entity_name = "Message"
+
+[node name="选项" type="Button" parent="." groups=["scene_manager_entity_nodes"]]
+offset_left = 53.0
+offset_top = 513.0
+offset_right = 136.0
+offset_bottom = 614.0
+text = "选项"
+metadata/_edit_use_anchors_ = true
+metadata/entity_name = "Setting"
+
+[node name="出牌" type="ColorRect" parent="."]
+offset_left = 161.0
+offset_top = 406.0
+offset_right = 240.0
+offset_bottom = 463.0
+color = Color(0.215686, 0.215686, 0.215686, 1)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="计数" type="Label" parent="出牌"]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 23.0
+offset_right = 56.0
+offset_bottom = 55.0
+label_settings = SubResource("LabelSettings_db6t2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="出牌"]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 25.0
+text = "出牌次数"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="弃牌" type="ColorRect" parent="."]
+offset_left = 261.0
+offset_top = 405.0
+offset_right = 347.0
+offset_bottom = 463.0
+color = Color(0.215686, 0.215686, 0.215686, 1)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="计数" type="Label" parent="弃牌"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 24.0
+offset_right = 61.0
+offset_bottom = 56.0
+label_settings = SubResource("LabelSettings_2707u")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="弃牌"]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 27.0
+text = "弃牌次数"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="钱数" type="ColorRect" parent="."]
+offset_left = 159.0
+offset_top = 479.0
+offset_right = 344.0
+offset_bottom = 538.0
+color = Color(0.215686, 0.215686, 0.215686, 1)
+metadata/_edit_use_anchors_ = true
+metadata/_edit_group_ = true
+
+[node name="计数" type="Label" parent="钱数"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.881081
+anchor_top = -8.15254
+anchor_right = -0.881081
+anchor_bottom = -8.15254
+offset_left = 161.0
+offset_top = 482.0
+offset_right = 347.0
+offset_bottom = 542.0
+label_settings = SubResource("LabelSettings_u6njl")
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="底注" type="ColorRect" parent="."]
+offset_left = 162.0
+offset_top = 555.0
+offset_right = 241.0
+offset_bottom = 612.0
+color = Color(0.215686, 0.215686, 0.215686, 1)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="计数" type="Label" parent="底注"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 24.0
+offset_right = 58.0
+offset_bottom = 56.0
+label_settings = SubResource("LabelSettings_ttytv")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="底注"]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 23.0
+text = "底注"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="回合" type="ColorRect" parent="."]
+offset_left = 258.0
+offset_top = 554.0
+offset_right = 344.0
+offset_bottom = 612.0
+color = Color(0.215686, 0.215686, 0.215686, 1)
+metadata/_edit_group_ = true
+metadata/_edit_use_anchors_ = true
+
+[node name="计数" type="Label" parent="回合"]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 24.0
+offset_right = 61.0
+offset_bottom = 56.0
+label_settings = SubResource("LabelSettings_p0ie2")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="回合"]
+layout_mode = 0
+offset_right = 86.0
+offset_bottom = 24.0
+text = "回合"
+horizontal_alignment = 1
+vertical_alignment = 1

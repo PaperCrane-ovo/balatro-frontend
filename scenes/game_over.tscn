@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://og5erenaavdj"]
+
+[ext_resource type="Script" path="res://scenes/game_over.gd" id="1_cerqe"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_cerqe")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 569.0
+offset_top = 154.0
+offset_right = 1393.0
+offset_bottom = 520.0
+bbcode_enabled = true
+fit_content = true

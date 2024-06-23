@@ -1,0 +1,49 @@
+[gd_scene load_steps=2 format=3 uid="uid://dx155abpcckor"]
+
+[ext_resource type="Script" path="res://scenes/hand_card.gd" id="1_mmhyw"]
+
+[node name="HandCard" type="Node2D"]
+script = ExtResource("1_mmhyw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 698.0
+offset_top = 692.0
+offset_right = 1630.0
+offset_bottom = 940.0
+color = Color(0.482353, 0.482353, 0.482353, 1)
+
+[node name="手牌数" type="Label" parent="."]
+offset_left = 1122.0
+offset_top = 947.0
+offset_right = 1216.0
+offset_bottom = 996.0
+
+[node name="牌组数" type="Label" parent="."]
+offset_left = 1653.0
+offset_top = 954.0
+offset_right = 1787.0
+offset_bottom = 1038.0
+
+[node name="出牌" type="Button" parent="."]
+offset_left = 760.0
+offset_top = 959.0
+offset_right = 967.0
+offset_bottom = 1044.0
+text = "出牌"
+
+[node name="弃牌" type="Button" parent="."]
+offset_left = 1354.0
+offset_top = 959.0
+offset_right = 1561.0
+offset_bottom = 1044.0
+text = "弃牌"
+
+[node name="DisplayZone" type="ColorRect" parent="."]
+offset_left = 703.0
+offset_top = 414.0
+offset_right = 1624.0
+offset_bottom = 628.0
+color = Color(1, 1, 1, 0)
+
+[connection signal="pressed" from="出牌" to="." method="play_card"]
+[connection signal="pressed" from="弃牌" to="." method="discard_card"]

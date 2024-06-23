@@ -1,0 +1,47 @@
+[gd_scene load_steps=4 format=3 uid="uid://bg1vpdkwpxy6w"]
+
+[ext_resource type="Script" path="res://scenes/select_level.gd" id="1_j8wia"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_abm0n"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_5rfli"]
+
+[node name="SelectLevel" type="Node2D"]
+script = ExtResource("1_j8wia")
+
+[node name="Button" type="Button" parent="." groups=["scene_manager_entity_nodes"]]
+offset_left = 784.0
+offset_top = 803.0
+offset_right = 1104.0
+offset_bottom = 898.0
+text = "确定"
+metadata/entity_name = "Start"
+
+[node name="Button2" type="Button" parent="." groups=["scene_manager_entity_nodes"]]
+offset_left = 1.0
+offset_right = 177.0
+offset_bottom = 92.0
+text = "Back"
+metadata/entity_name = "Back"
+
+[node name="Button3" type="Button" parent="." groups=["scene_manager_entity_nodes"]]
+offset_left = 224.0
+offset_top = 268.0
+offset_right = 789.0
+offset_bottom = 603.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_abm0n")
+text = "红色牌组
+弃牌次数+1"
+metadata/entity_name = "Red"
+
+[node name="Button4" type="Button" parent="." groups=["scene_manager_entity_nodes"]]
+offset_left = 1103.0
+offset_top = 265.0
+offset_right = 1678.0
+offset_bottom = 600.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_5rfli")
+text = "蓝色牌组
+出牌次数+1"
+metadata/entity_name = "Blue"

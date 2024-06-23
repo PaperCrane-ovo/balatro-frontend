@@ -1,0 +1,55 @@
+extends Node2D
+
+var selected_joker:JokerSprite = null
+var joker_script = preload("res://scenes/joker.gd")
+@onready var list:ColorRect = $小丑列表
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Sold.set_visible(false)
+
+func _select_joker(joker:JokerSprite):
+	if selected_joker == joker:
+		joker.set_scale(Vector2(1.0,1.0))
+		selected_joker = null
+		$Sold.set_visible(false)
+		get_parent().update_joker_description(null)
+	else:
+		if selected_joker != null:
+			selected_joker.set_scale(Vector2(1.0,1.0))
+		selected_joker = joker
+		joker.set_scale(Vector2(1.5,1.5))
+		$Sold.set_visible(true)
+		get_parent().update_joker_description(joker.get_display_info())
+		
+func _joker_added():
+	var jokers = GameCore.get_joker_list()
+	for i in range(jokers.size()):
+		if jokers[i].is_inside_tree():
+			continue
+		else:
+			var joker = jokers[i]
+			joker.set_script(joker_script)
+			list.add_child(joker)
+			list.move_child(joker,i)
+			if not joker.joker_clicked.is_connected(_select_joker):
+				joker.joker_clicked.connect(_select_joker)
+	_set_joker_pos(list.get_children(),list.get_rect())
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+	
+func _set_joker_pos(nodes:Array[Node],rect:Rect2):
+	var size = rect.size
+
+	var gap = size.x/(nodes.size()+1)
+	var x = rect.position.x
+	var y = rect.get_center().y
+	var i = 1
+	for node in nodes:
+		node.set_global_position(to_global(Vector2(i*gap+x,y)))
+		i+=1
+
+func _on_sold_pressed():
+	pass # Replace with function body.

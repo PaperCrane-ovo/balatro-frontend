@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn4du27xmi4hl"]
+
+[ext_resource type="Script" path="res://scenes/win_blind.gd" id="1_muvi5"]
+
+[node name="WinBlind" type="Node2D"]
+script = ExtResource("1_muvi5")
+
+[node name="bg" type="ColorRect" parent="."]
+offset_left = 643.0
+offset_top = 362.0
+offset_right = 1872.0
+offset_bottom = 1029.0
+color = Color(0.266667, 0.266667, 0.266667, 1)
+
+[node name="next" type="Button" parent="."]
+offset_left = 1416.0
+offset_top = 907.0
+offset_right = 1741.0
+offset_bottom = 990.0
+text = "确定"
+
+[node name="text" type="RichTextLabel" parent="."]
+offset_left = 812.0
+offset_top = 387.0
+offset_right = 1719.0
+offset_bottom = 479.0
+bbcode_enabled = true
+
+[node name="JokerSlot" type="ColorRect" parent="."]
+offset_left = 793.0
+offset_top = 481.0
+offset_right = 1740.0
+offset_bottom = 729.0
+color = Color(0.27451, 0.27451, 0.27451, 1)
+
+[node name="Discription" type="RichTextLabel" parent="."]
+offset_left = 795.0
+offset_top = 765.0
+offset_right = 1364.0
+offset_bottom = 1000.0
+bbcode_enabled = true
+
+[node name="Skip" type="Button" parent="."]
+offset_left = 1415.0
+offset_top = 762.0
+offset_right = 1741.0
+offset_bottom = 853.0
+text = "跳过"
+
+[connection signal="pressed" from="next" to="." method="_my_next_clicked"]
+[connection signal="pressed" from="Skip" to="." method="_my_skip_clicked"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bxtfva5rmrnym"]
+
+[ext_resource type="PackedScene" uid="uid://b6nqfagsjeefw" path="res://scenes/joker_list.tscn" id="1_77pab"]
+[ext_resource type="Script" path="res://scenes/player.gd" id="1_qwx0g"]
+[ext_resource type="PackedScene" uid="uid://d2y7esieujr4" path="res://scenes/blind.tscn" id="2_i5h1g"]
+[ext_resource type="PackedScene" uid="uid://bxb3ins5smp88" path="res://scenes/message.tscn" id="3_hm3sj"]
+
+[node name="Player" type="Player"]
+script = ExtResource("1_qwx0g")
+
+[node name="Blind" parent="." instance=ExtResource("2_i5h1g")]
+position = Vector2(-12, 18)
+
+[node name="Message" parent="." instance=ExtResource("3_hm3sj")]
+
+[node name="JokerList" parent="." instance=ExtResource("1_77pab")]
+position = Vector2(-30, -7)
+scale = Vector2(1.585, 1.585)
+
+[connection signal="enter_room" from="Blind" to="." method="_on_blind_enter_room"]
