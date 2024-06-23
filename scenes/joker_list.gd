@@ -35,6 +35,7 @@ func _joker_added():
 			if not joker.joker_clicked.is_connected(_select_joker):
 				joker.joker_clicked.connect(_select_joker)
 	_set_joker_pos(list.get_children(),list.get_rect())
+	$"数量".set_text("%d/%d" % [jokers.size(),GameCore.joker_list_limit])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -52,4 +53,11 @@ func _set_joker_pos(nodes:Array[Node],rect:Rect2):
 		i+=1
 
 func _on_sold_pressed():
-	pass # Replace with function body.
+	list.remove_child(selected_joker)
+	GameCore.pop_joker(selected_joker)
+	_set_joker_pos(list.get_children(),list.get_rect())
+	selected_joker = null
+	$Sold.set_visible(false)
+	get_parent().update_joker_description(null)
+	
+	
