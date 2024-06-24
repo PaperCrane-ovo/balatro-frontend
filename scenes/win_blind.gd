@@ -26,14 +26,13 @@ func _ready():
 	room.append_text("选择你的小丑牌")
 	room.pop_all()
 	
-	for i in range(3):
-		var joker = GameCore.get_random_joker()
-		award_list.push_back(joker)
-		joker.set_script(joker_script)
+	var drop_number = 3;
+	award_list = GameCore.get_random_jokers(drop_number);
 	exit_from_player = false
 	exit_from_player_time = 0.0
 	
 	for i in range(award_list.size()):
+		award_list[i].set_script(joker_script)
 		slot.add_child(award_list[i])
 		award_list[i].set_scale(Vector2(1.5,1.5))
 		award_list[i].joker_clicked.connect(_joker_clicked)
@@ -69,8 +68,20 @@ func _process(delta):
 			queue_free()
 
 func _my_next_clicked():
-	exit_from_player = true
-	GameCore.push_joker(selected_joker)
+	if (GameCore.can_push_joker()):
+		GameCore.push_joker(selected_joker)
+		exit_from_player = true
+		
+
+func _on_next_mouse_entered():
+	if (!GameCore.can_push_joker()):
+		$next.text = "已达上限"
+		$next.set_disabled(true)
+
+func _on_next_mouse_exited():
+	$next.text = "确定"
+	$next.set_disabled(false)
+
 func _my_skip_clicked():
 	exit_from_player = true
 	
