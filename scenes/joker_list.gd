@@ -7,6 +7,7 @@ var joker_script = preload("res://scenes/joker.gd")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sold.set_visible(false)
+	$"数量".set_text("%d/%d" % [GameCore.get_joker_list().size(), GameCore.joker_list_limit])
 
 func _select_joker(joker:JokerSprite):
 	if selected_joker == joker:
@@ -35,7 +36,7 @@ func _joker_added():
 			if not joker.joker_clicked.is_connected(_select_joker):
 				joker.joker_clicked.connect(_select_joker)
 	_set_joker_pos(list.get_children(),list.get_rect())
-	$"数量".set_text("%d/%d" % [jokers.size(),GameCore.joker_list_limit])
+	$"数量".set_text("%d/%d" % [jokers.size(), GameCore.joker_list_limit])
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

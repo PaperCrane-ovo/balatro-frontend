@@ -25,8 +25,7 @@ offset_left = 413.967
 offset_top = 184.156
 offset_right = 453.967
 offset_bottom = 207.156
-text = "0/6
-"
+text = "0/0"
 
 [node name="Sold" type="Button" parent="."]
 offset_left = 910.964
