@@ -9,6 +9,24 @@ func _ready():
 	$Sold.set_visible(false)
 	$"数量".set_text("%d/%d" % [GameCore.get_joker_list().size(), GameCore.joker_list_limit])
 
+func _input(event):
+	if selected_joker == null:
+		return
+	var offset = 0
+	var pressed = false
+	if event.is_action_pressed("ui_left"):
+		offset = -1
+		pressed = true
+	elif event.is_action_pressed("ui_right"):
+		offset = 1
+		pressed = true
+	if pressed:
+		print("pressed dir key")
+		var index = GameCore.swap_joker(selected_joker,offset)
+		if index != -1:
+			list.move_child(selected_joker,index)
+			_set_joker_pos(list.get_children(),list.get_rect())
+
 func _select_joker(joker:JokerSprite):
 	if selected_joker == joker:
 		joker.set_scale(Vector2(1.0,1.0))
