@@ -181,7 +181,7 @@ func update_joker_description(discription:JokerDisplayInfo):
 				color = Color("Green")
 			"Rare":
 				color = Color("Red")
-			"Lagendary":
+			"Legendary":
 				color = Color("Purple")
 		joker_discription.push_color(color)
 		joker_discription.append_text(discription.name)

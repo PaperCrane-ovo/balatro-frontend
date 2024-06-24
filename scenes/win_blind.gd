@@ -106,7 +106,7 @@ func _joker_clicked(joker:JokerSprite):
 				color = Color("Green")
 			"Rare":
 				color = Color("Red")
-			"Lagendary":
+			"Legendary":
 				color = Color("Purple")
 		discription.push_paragraph(HORIZONTAL_ALIGNMENT_CENTER)
 		discription.push_font_size(30)

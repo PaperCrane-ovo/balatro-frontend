@@ -33,7 +33,7 @@ func set_blinds():
 	for i in range(3):
 		children[i].get_child(0).set_disabled(true)
 		children[i].get_child(3).set_disabled(true)
-		children[i].get_child(3).set_text("跳过盲注")
+		children[i].get_child(3).set_text("跳过盲注尚未实现")
 		match blinds[i].blind_type:
 			"SmallBlind":
 				children[i].get_child(1).set_text("小盲注")
@@ -49,7 +49,7 @@ func set_blinds():
 				children[i].position -= Vector2(0.0,35.0)
 				children[i].get_child(0).set_disabled(false)
 				children[i].get_child(0).set_text("选择")
-				children[i].get_child(3).set_disabled(false)
+				# children[i].get_child(3).set_disabled(false)
 				current_blind = i
 			"Skip":
 				children[i].get_child(0).set_text("跳过")
